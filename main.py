@@ -61,6 +61,7 @@ def guide():
     guide1 = load_image('guide1.png')
     guide2 = load_image('guide2.png')
     guide3 = load_image('guide3.png')
+    guide4 = load_image('guide4.png')
     screen.blit(background_image, background_position)
     screen.blit(guide1, background_position)
     while not guide:
@@ -68,8 +69,11 @@ def guide():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_n and status == 2:
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_n and status == 3:
                 screen.blit(guide3, background_position)
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_n and status == 2:
+                status = 3
+                screen.blit(guide4, background_position)
             if event.type == pygame.KEYDOWN and event.key == pygame.K_n and status == 1:
                 status = 2
                 screen.blit(guide2, background_position)
@@ -91,9 +95,13 @@ def intro():
     while intro:
         screen.blit(background_image, background_position)
         screen.blit(catcatch, (93,100))
-        message_to_screen('Press F to start! or Press G to guide',
+        message_to_screen('Press LEFT or RIGHT to start!',
+                          blue,
+                          y_displace=-30)
+        message_to_screen('Press G to guide',
                           blue,
                           y_displace=30)
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                     pygame.quit()
@@ -102,7 +110,7 @@ def intro():
                 if event.key == pygame.K_g:
                    guide()
                     
-                if event.key == pygame.K_f:
+                if event.key == pygame.K_LEFT:
                     intro = False
                     gameLoop()
                 if event.key == pygame.K_q:
@@ -155,11 +163,14 @@ def gameLoop():
         while gameOver == True:
             
             screen.blit(background_image, background_position)
-            screen.blit(gameover, (120,220))
+            screen.blit(gameover, (120,170))
             font = pygame.font.SysFont("comicsansms", 40)
-            text = font.render("Your Score is: "+str(score), True, white)
-            screen.blit(text,(100,100))
-            message_to_screen("Press F to play again or Q to quit",
+            text = font.render("Your Score is "+str(score), True, white)
+            screen.blit(text,(100,70))
+            message_to_screen("Press F to play again",
+                              red,
+                              y_displace=50)
+            message_to_screen("Press Q to quit",
                               red,
                               y_displace=80)
             screen.blit(catl, (catl_x,cat_y))
@@ -175,7 +186,7 @@ def gameLoop():
                     if event.key == pygame.K_q:
                         pygame.quit()
                         quit()
-                    if event.key == pygame.K_f:
+                    if event.key == pygame.K_f :
                         gameLoop()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
