@@ -19,7 +19,7 @@ pygame.display.set_caption('Cat Catch')
 
 # Play background music
 pygame.mixer.music.load('fatcat.mp3')
-pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.set_volume(0.3)
 
 
 clock = pygame.time.Clock()
