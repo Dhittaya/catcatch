@@ -1,4 +1,7 @@
 # catcatch
+
+![](https://github.com/Dhittaya/catcatch/blob/master/cat.png)   ![](https://github.com/Dhittaya/catcatch/blob/master/eat.png)
+
 ### Description:
 A created cat catch game by Python 
 
