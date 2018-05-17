@@ -50,11 +50,6 @@ def message_to_screen(msg, color, y_displace=0):
     textRect.center = 500/2, (800/2 + y_displace)
     screen.blit(textSurf, textRect)
 
-#def fish(fish_image, x,y):
-    #screen.blit(fish_image, [x,y])
-
-
-
 def guide():
     status = 1
     guide = False
@@ -113,10 +108,6 @@ def intro():
         screen.blit(catr, (catr_x,cat_y))
         pygame.display.update()
         clock.tick(15)
-
- 
-
- 
 
 def gameLoop():
     pygame.mixer.music.play(-1)
@@ -253,7 +244,6 @@ def gameLoop():
         fish_startx += fish_speed
         fish_starty += speed
         
-
         #Fish right
         screen.blit(fish_imager, (fish_startxr, fish_startyr))
         speedr += gravityr
@@ -327,9 +317,7 @@ def gameLoop():
                 gameOver = True
             else:
                 speed -= 10
-            
-            
-             
+               
         things_score(score)
         
         pygame.display.update()
@@ -348,8 +336,7 @@ def gameLoop():
             clock.tick(85)
         elif score >= 200 :
             clock.tick(90)
-        
-        
+            
     pygame.quit()
     quit()
 intro()
