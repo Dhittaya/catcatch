@@ -21,7 +21,6 @@ pygame.display.set_caption('Cat Catch')
 pygame.mixer.music.load('fatcat.mp3')
 pygame.mixer.music.set_volume(0.3)
 
-
 clock = pygame.time.Clock()
 
 # Set position
@@ -49,11 +48,6 @@ def message_to_screen(msg, color, y_displace=0):
     #screen.blit(screen_text, (105,250))
     textRect.center = 500/2, (800/2 + y_displace)
     screen.blit(textSurf, textRect)
-
-#def fish(fish_image, x,y):
-    #screen.blit(fish_image, [x,y])
-
-
 
 def guide():
     status = 1
@@ -121,10 +115,6 @@ def intro():
         screen.blit(catr, (catr_x,cat_y))
         pygame.display.update()
         clock.tick(15)
-
- 
-
- 
 
 def gameLoop():
     pygame.mixer.music.play(-1)
@@ -210,6 +200,7 @@ def gameLoop():
                 elif event.key == pygame.K_RIGHT:
                     status_eatl = ""
                     catr = pygame.image.load('cat.png')
+                    
         class Sprite:
  
             def __init__(self,x,y,width,height):
@@ -221,7 +212,6 @@ def gameLoop():
                 self.width=width
  
                 self.height=height
- 
 
         def detectCollisions(x1,y1,w1,h1,x2,y2,w2,h2):
  
@@ -317,8 +307,7 @@ def gameLoop():
                 catr = pygame.image.load('miss.png')
                 gameOver = True
             else:
-                speedr -= 10
-            
+                speedr -= 10   
             
         if detectCollisions(Sprite2.x,Sprite2.y,Sprite2.width,Sprite2.height-30,fish_startx,fish_starty,50,30) :#eat right
             if status_eatl == "eat":
@@ -337,9 +326,7 @@ def gameLoop():
                 catr = pygame.image.load('miss.png')
                 gameOver = True
             else:
-                speed -= 10
-            
-            
+                speed -= 10     
              
         things_score(score)
         
@@ -358,8 +345,7 @@ def gameLoop():
         elif score <= 175 :
             clock.tick(85)
         elif score <= 200 :
-            clock.tick(90)
-        
+            clock.tick(90)    
         
     pygame.quit()
     quit()
